@@ -1,0 +1,35 @@
+{
+  "name": "botlytics",
+  "version": "1.0.0",
+  "description": "Analytics for your bot",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shivkanthb/botlytics.git"
+  },
+  "keywords": [
+    "Bots",
+    "analytics",
+    "API",
+    "node"
+  ],
+  "author": "shiv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shivkanthb/botlytics/issues"
+  },
+  "homepage": "https://github.com/shivkanthb/botlytics#readme",
+  "dependencies": {
+    "request": "^2.72.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
