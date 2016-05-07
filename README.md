@@ -26,7 +26,7 @@ Visit the official HTTP docs [here](http://botlytics.api-docs.io/)
 
 ##### Outgoing Message
     
-     botlytics.incoming(<message>,<conversation_id>, function(err, response, body){} );
+     botlytics.outgoing(<message>,<conversation_id>, function(err, response, body){} );
     
         
 ## Example
