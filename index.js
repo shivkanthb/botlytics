@@ -1,8 +1,5 @@
-var dotenv = require('dotenv');
-dotenv.load();
 
-var bot_token=process.env.BOT_TOKEN;
-
+var bot_token;
 var request = require("request");
 
 module.exports = {
@@ -23,8 +20,6 @@ incoming : function(input, conv_id, callback) {
 };
     
     request(options, function (err, res, body) {
-        // if (err) throw new Error(err);
-        // console.log(body);
         callback(err, res, body);
     });
     
@@ -46,15 +41,13 @@ outgoing: function(output, conv_id, callback) {
 };
     
     request(options, function (err, res, body) {
-        // if (err) throw new Error(err);
-        // console.log(body);
         callback(err, res, body);
     });
     
 },
 
-test: function(){
-    return "hola";
+setBotToken: function(token) {
+    bot_token=token;
 }
 
 };
