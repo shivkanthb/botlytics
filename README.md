@@ -22,11 +22,11 @@ Visit the official HTTP docs [here](http://botlytics.api-docs.io/)
   
 ##### Incoming Message
     
-    botlytics.incoming(<message>,<conversation_id>, function(err, response, body){} );
+    botlytics.incoming(<message>, <conversation_id>, <sender_id>, <platform>, <payload>, function(err, response, body){} );
 
 ##### Outgoing Message
     
-     botlytics.outgoing(<message>,<conversation_id>, function(err, response, body){} );
+     botlytics.outgoing(<message>, <conversation_id>, <sender_id>, <platform>, <payload>, function(err, response, body){} );
     
         
 ## Example

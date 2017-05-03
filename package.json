@@ -1,6 +1,6 @@
 {
   "name": "botlytics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Analytics for your bot",
   "main": "index.js",
   "directories": {

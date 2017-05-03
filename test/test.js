@@ -10,16 +10,28 @@ describe('botlytics', function() {
   
     it('should return an object for incoming', function() {
        botlytics.setBotToken(bot_token);
-       var res = botlytics.incoming("hello","user_123","sender1","messenger",null, function(err, resp,body) {
-           expect(res.body).to.have.property('text'); 
+       var dict = {
+          text: "hello",
+          conversation_id: "user_123",
+          sender_id: "sender1",
+          platform: "kik"
+       };
+       var res = botlytics.incoming(dict, function(err, resp,body) {
+          expect(res.body).to.have.property('text'); 
        });    
     });
     
       it('should return an object for outgoing', function() {
        botlytics.setBotToken(bot_token);
-       var res = botlytics.outgoing("hello hooman","user_123","sender1","messenger",null, function(err, resp,body) {
-           expect(res.body).to.have.property('text'); 
+       var dict = {
+          text: "hello hooman",
+          conversation_id: "user_123",
+          sender_id: "sender1",
+          platform: "kik"
+       };
+       var res = botlytics.outgoing(dict, function(err, resp,body) {
+           expect(res.body).to.have.property('text');  
        });    
     });
-    
+      
 });
