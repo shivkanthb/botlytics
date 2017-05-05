@@ -8,30 +8,36 @@ var bot_token = "f8695b4d4c9e4107"; //bot token comes here
 
 describe('botlytics', function() {
   
-    it('should return an object for incoming', function() {
+    it('should return an object for incoming', function(done) {
        botlytics.setBotToken(bot_token);
        var dict = {
           text: "hello",
-          conversation_id: "user_123",
-          sender_id: "sender1",
+          conversation_identifier: "user_123",
+          sender_identifier: "sender1",
           platform: "kik"
        };
-       var res = botlytics.incoming(dict, function(err, resp,body) {
-          expect(res.body).to.have.property('text'); 
+       botlytics.incoming(dict, function(err, resp,body) {
+          expect(body).to.have.property('text'); 
+          expect(body).to.have.property('kind');
+          expect(body).to.have.property('created_at');  
+          done();
        });    
     });
     
-      it('should return an object for outgoing', function() {
+      it('should return an object for outgoing', function(done) {
        botlytics.setBotToken(bot_token);
        var dict = {
           text: "hello hooman",
-          conversation_id: "user_123",
-          sender_id: "sender1",
+          conversation_identifier: "user_123",
+          sender_identifier: "sender1",
           platform: "kik"
        };
-       var res = botlytics.outgoing(dict, function(err, resp,body) {
-           expect(res.body).to.have.property('text');  
+       botlytics.outgoing(dict, function(err, resp,body) {
+           expect(body).to.have.property('text'); 
+           expect(body).to.have.property('kind');
+           expect(body).to.have.property('created_at'); 
+           done();
        });    
     });
-      
+
 });

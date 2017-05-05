@@ -35,7 +35,14 @@ Visit the official HTTP docs [here](http://botlytics.api-docs.io/)
 
     botlytics.setBotToken('XXXXXXXXXXXX');
 
-    botlytics.incoming("Hello!","test_user", function(err,res, body){
+    var dict = {
+        text: "Hello!",
+        conversation_identifier: "conv_99980",
+        sender_identifier: "sender_123",
+        platform: "kik"
+    };
+
+    botlytics.incoming(dict, function(err,res, body){
         if(err) throw Error(err);
         console.log(body);
     });
