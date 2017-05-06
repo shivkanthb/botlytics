@@ -9,6 +9,7 @@ Visit the official HTTP docs [here](http://botlytics.api-docs.io/)
 
   `npm install botlytics`
 
+
 ## Usage
 
     var botlytics = require('botlytics');
@@ -19,14 +20,21 @@ Visit the official HTTP docs [here](http://botlytics.api-docs.io/)
   
   
   This sets the bot token for our function calls.
+
+#### Parameters
+- `text` (string, required) is the content of the message.
+- `conversation_identifier` (string, optional) is a unique string that will organize messages into conversations with your bot and others. Examples of this might be a conversation ID or a group name.
+- `sender_identifier` (string, optional) is a unique string that will track who sent which messages. Examples of this might be a user ID or a phone number.
+- `platform` (string, optional) is the platform that the message was sent on. Examples include "slack", "messenger", "kik".
+- `payload` (string, optional) is the payload for complex messages that include more than just text.
   
 ##### Incoming Message
     
-    botlytics.incoming(<message>, <conversation_id>, <sender_id>, <platform>, <payload>, function(err, response, body){} );
+    botlytics.incoming({text: <message>, conversation_identifier: <conversation_id>, ... }, function(err, response, body){} );
 
 ##### Outgoing Message
     
-     botlytics.outgoing(<message>, <conversation_id>, <sender_id>, <platform>, <payload>, function(err, response, body){} );
+     botlytics.outgoing({text: <message>, conversation_identifier: <conversation_id>, ... }, function(err, response, body){} );
     
         
 ## Example
