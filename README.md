@@ -11,13 +11,13 @@ Visit the official HTTP docs [here](http://botlytics.api-docs.io/)
 
 
 ## Usage
+```
+var botlytics = require('botlytics');
 
-    var botlytics = require('botlytics');
-    
-    var bot_token ="";  // Include your bot token here. 
-    
-    botlytics.setBotToken(bot_token);  
-  
+var bot_token ="";  // Include your bot token here. 
+
+botlytics.setBotToken(bot_token);  
+```  
   
   This sets the bot token for our function calls.
 
@@ -29,40 +29,40 @@ Visit the official HTTP docs [here](http://botlytics.api-docs.io/)
 - `payload` (string, optional) is the payload for complex messages that include more than just text.
   
 ##### Incoming Message
-    
-    botlytics.incoming({text: <message>, conversation_identifier: <conversation_id>, ... }, function(err, response, body){} );
-
+```
+botlytics.incoming({text: <message>, conversation_identifier: <conversation_id>, ... }, function(err, response, body){} );
+```
 ##### Outgoing Message
-    
-     botlytics.outgoing({text: <message>, conversation_identifier: <conversation_id>, ... }, function(err, response, body){} );
-    
+```
+botlytics.outgoing({text: <message>, conversation_identifier: <conversation_id>, ... }, function(err, response, body){} );
+```  
         
 ## Example
+```
+var botlytics = require('botlytics');
 
-    var botlytics = require('botlytics');
+botlytics.setBotToken('XXXXXXXXXXXX');
 
-    botlytics.setBotToken('XXXXXXXXXXXX');
+var dict = {
+    text: "Hello!",
+    conversation_identifier: "conv_99980",
+    sender_identifier: "sender_123",
+    platform: "kik"
+};
 
-    var dict = {
-        text: "Hello!",
-        conversation_identifier: "conv_99980",
-        sender_identifier: "sender_123",
-        platform: "kik"
-    };
-
-    botlytics.incoming(dict, function(err,res, body){
-        if(err) throw Error(err);
-        console.log(body);
-    });
-
+botlytics.incoming(dict, function(err,res, body){
+    if(err) throw Error(err);
+    console.log(body);
+});
+```
  This outputs :
- 
-    {
-      "text": "Hello!",
-      "kind": "incoming",
-      "created_at": "2016-05-07T04:42:58.129Z"
-    }
-    
+ ```
+{
+  "text": "Hello!",
+  "kind": "incoming",
+  "created_at": "2016-05-07T04:42:58.129Z"
+}
+```  
 ## Tests
 
   `npm test`
